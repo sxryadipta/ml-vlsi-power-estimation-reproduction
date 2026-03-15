@@ -1,13 +1,28 @@
 from sklearn.ensemble import RandomForestRegressor
+from sklearn.model_selection import cross_val_score
+import numpy as np
 
 def train_rf(X_train, y_train):
 
-    model = RandomForestRegressor(
-        n_estimators=500,
-        max_depth=12,
+    rf = RandomForestRegressor(
+        n_estimators=700,
+        max_depth=15,
+        min_samples_leaf=1,
         random_state=42
     )
 
-    model.fit(X_train, y_train)
+    # 10-fold cross validation (as used in the paper)
+    scores = cross_val_score(
+        rf,
+        X_train,
+        y_train,
+        cv=10,
+        scoring="neg_mean_squared_error"
+    )
 
-    return model
+    mse = -scores.mean()
+    rmse = np.sqrt(mse)
+
+    rf.fit(X_train, y_train)
+
+    return rf, mse, rmse
