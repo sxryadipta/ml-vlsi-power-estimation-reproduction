@@ -2,7 +2,7 @@
 
 This repository reproduces results from:
 
-Machine Learning Based Power Estimation for CMOS VLSI Circuits
+[Machine Learning Based Power Estimation for CMOS VLSI Circuits](https://www.researchgate.net/publication/353749810_Machine_Learning_Based_Power_Estimation_for_CMOS_VLSI_Circuits)
 
 Models implemented:
 - Backpropagation Neural Network
