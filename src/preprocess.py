@@ -3,8 +3,8 @@ from sklearn.preprocessing import MinMaxScaler
 
 def load_data(train_path, test_path):
 
-    train = pd.read_csv(train_path)
-    test = pd.read_csv(test_path)
+    train = pd.read_csv("data/train.csv")
+    test = pd.read_csv("data/test.csv")
 
     X_train = train.drop(["circuit","power"], axis=1)
     y_train = train["power"]
